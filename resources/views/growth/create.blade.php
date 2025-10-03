@@ -39,7 +39,7 @@
 
             <div class="content">
 
-                <div class="col-lg-6 offset-lg-3">
+                <div class="col-lg-8 offset-lg-2">
                     <!-- Basic card -->
                     <div class="card">
                         <div class="card-header">
@@ -52,7 +52,6 @@
                                 'action' => route('growth.store'),
                                 'submitText' => 'บันทึกข้อมูล'
                             ])
-
 
                         </div>
                     </div>

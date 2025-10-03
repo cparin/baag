@@ -26,13 +26,33 @@
                         </div>
 
                         <div class="text-center">
-                            <button data-bs-toggle="modal" data-bs-target="#modal_default"
+
+                            @if(session()->get('profile')->gender == 'female')
+                            <button onclick="document.location='{{ route('growth.add',2) }}'"
                                     type="button"
                                     class="btn btn-white w-75 flex-column rounded-0 rounded-top-start py-2 m-2">
                                 <i class="ph-arrow-bend-right-up text-primary ph-2x mb-1"></i>
                                 การเจริญเติบโตทางเพศ
                             </button>
+                            @else
+                                <button onclick="document.location='{{ route('growth.add',9) }}'"
+                                        type="button"
+                                        class="btn btn-white w-75 flex-column rounded-0 rounded-top-start py-2 m-2">
+                                    <i class="ph-arrow-bend-right-up text-primary ph-2x mb-1"></i>
+                                    การเจริญเติบโตทางเพศ
+                                </button>
+                            @endif
+
                         </div>
+
+{{--                        <div class="text-center">--}}
+{{--                            <button data-bs-toggle="modal" data-bs-target="#modal_default"--}}
+{{--                                    type="button"--}}
+{{--                                    class="btn btn-white w-75 flex-column rounded-0 rounded-top-start py-2 m-2">--}}
+{{--                                <i class="ph-arrow-bend-right-up text-primary ph-2x mb-1"></i>--}}
+{{--                                การเจริญเติบโตทางเพศ--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
 
                         {{--                        <div class="text-center">--}}
                         {{--                            <button onclick="document.location='{{ route('growth.add',1) }}'"--}}

@@ -135,38 +135,40 @@
                         </div>
                     </div>
 
-                @else
-                    {{--                    <div class="row mb-3">--}}
-                    {{--                        <label class="col-form-label col-lg-4">การเติบโตทุติยภูมิ <span--}}
-                    {{--                                class="text-danger">*</span></label>--}}
-                    {{--                        <div class="col-lg-4">--}}
-                    {{--                            <select id="imageDropdown" class="form-control "--}}
-                    {{--                                    style="width: 300px;">--}}
-                    {{--                                <option value="1"--}}
-                    {{--                                        data-image="{{ asset('images/growth/b1.png') }}">--}}
-                    {{--                                    แบบที่ 1--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="2"--}}
-                    {{--                                        data-image="{{ asset('images/growth/b2.png') }}">--}}
-                    {{--                                    แบบที่ 2--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="3"--}}
-                    {{--                                        data-image="{{ asset('images/growth/b3.png') }}">--}}
-                    {{--                                    แบบที่ 3--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="4"--}}
-                    {{--                                        data-image="{{ asset('images/growth/b4.png') }}">--}}
-                    {{--                                    แบบที่ 4--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="5"--}}
-                    {{--                                        data-image="{{ asset('images/growth/b5.png') }}">--}}
-                    {{--                                    แบบที่ 5--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                            <div class="invalid-feedback">กรุณาระบุข้อมูล</div>--}}
+                    <div class="row mb-3">
+                        <label class="col-form-label col-lg-4">ขนหัวหน่าว <span
+                                class="text-danger">*</span></label>
+                        <div class="col-lg-4">
+                            <select id="imageDropdown9" class="form-control " name="pubic_hair"
+                                    style="width: 300px;">
+                                <option value="1"
+                                        data-image="{{ asset('images/growth/gg1.png') }}">
+                                    แบบที่ 1
+                                </option>
+                                <option value="2"
+                                        data-image="{{ asset('images/growth/gg2.png') }}">
+                                    แบบที่ 2
+                                </option>
+                                <option value="3"
+                                        data-image="{{ asset('images/growth/gg3.png') }}">
+                                    แบบที่ 3
+                                </option>
+                                <option value="4"
+                                        data-image="{{ asset('images/growth/gg4.png') }}">
+                                    แบบที่ 4
+                                </option>
+                                <option value="5"
+                                        data-image="{{ asset('images/growth/gg5.png') }}">
+                                    แบบที่ 5
+                                </option>
+                            </select>
+                            <div class="invalid-feedback">กรุณาระบุข้อมูล</div>
 
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+                        </div>
+                    </div>
+
+                @else
+
 
                 @endif
 
@@ -245,40 +247,6 @@
 
                         </div>
 
-{{--                        <div id="opt7">--}}
-{{--                            <div class="row mb-3 mt-3">--}}
-{{--                                <label class="col-form-label col-lg-4">ขนาดไข่อัณฑะข้างซ้าย (มม.)</label>--}}
-{{--                                <div class="col-lg-3">--}}
-{{--                                    --}}{{--                                    <input type="text" class="form-control" name="ballleft"--}}
-{{--                                    --}}{{--                                           placeholder="">--}}
-{{--                                    <select class="form-select" required="" name="ballleft">--}}
-{{--                                        <option selected disabled value="">กรุณาเลือก...</option>--}}
-{{--                                        @foreach(range(1, 25) as $number)--}}
-{{--                                            <option value="{{ $number }}">{{ $number }} มม.</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
-{{--                                    <div class="invalid-feedback">กรุณาระบุข้อมูล</div>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-{{--                            <div class="row mb-3">--}}
-{{--                                <label class="col-form-label col-lg-4">ขนาดไข่อัณฑะข้างขวา (มม.)</label>--}}
-{{--                                <div class="col-lg-3">--}}
-{{--                                    --}}{{--                                    <input type="text" class="form-control" name="ballright"--}}
-{{--                                    --}}{{--                                           placeholder="">--}}
-
-{{--                                    <select class="form-select" required="" name="ballright">--}}
-{{--                                        <option selected disabled value="">กรุณาเลือก...</option>--}}
-{{--                                        @foreach(range(1, 25) as $number)--}}
-{{--                                            <option value="{{ $number }}">{{ $number }} มม.</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
-{{--                                    <div class="invalid-feedback">กรุณาระบุข้อมูล</div>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
 
                 @endif
@@ -324,7 +292,7 @@
                 <div id="opt7">
                     <div class="row mb-3 mt-3">
                         <label class="col-form-label col-lg-4">ขนาดไข่อัณฑะข้างซ้าย (มม.)</label>
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                             {{--                                    <input type="text" class="form-control" name="ballleft"--}}
                             {{--                                           placeholder="">--}}
                             <select class="form-select" required="" name="ballleft">
@@ -340,7 +308,7 @@
 
                     <div class="row mb-3">
                         <label class="col-form-label col-lg-4">ขนาดไข่อัณฑะข้างขวา (มม.)</label>
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                             {{--                                    <input type="text" class="form-control" name="ballright"--}}
                             {{--                                           placeholder="">--}}
 
@@ -355,6 +323,40 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row mb-3 ">
+                <label class="col-form-label col-lg-4">ขนหัวหน่าว <span
+                        class="text-danger">*</span></label>
+                <div class="col-lg-4">
+                    <select id="imageDropdown5" class="form-control " name="pubic_hair"
+                            style="width: 300px;">
+                        <option value="1"
+                                data-image="{{ asset('images/growth/bg1.png') }}">
+                            แบบที่ 1
+                        </option>
+                        <option value="2"
+                                data-image="{{ asset('images/growth/bg2.png') }}">
+                            แบบที่ 2
+                        </option>
+                        <option value="3"
+                                data-image="{{ asset('images/growth/bg3.png') }}">
+                            แบบที่ 3
+                        </option>
+                        <option value="4"
+                                data-image="{{ asset('images/growth/bg4.png') }}">
+                            แบบที่ 4
+                        </option>
+                        <option value="5"
+                                data-image="{{ asset('images/growth/bg5.png') }}">
+                            แบบที่ 5
+                        </option>
+                    </select>
+
+                    <div class="invalid-feedback">กรุณาระบุข้อมูล</div>
+
+                </div>
+
             </div>
 
         @endif
