@@ -602,40 +602,7 @@
                 }
             },
 
-
-            // {
-            //     name: 'Breast Tanner stage II',
-            //     type: 'bar',
-            //     barWidth: '100%',
-            //     data: tannerBand,
-            //     xAxisIndex: 1,
-            //     yAxisIndex: 1,
-            //     itemStyle: {
-            //         color: function(params) {
-            //             return params.value === 1 ? '#FFD481' : 'transparent';
-            //         },
-            //         borderRadius: 5,
-            //     },
-            //     label: {
-            //         show: true,
-            //         position: 'inside',
-            //         formatter: function(params) {
-            //             // Only show label in the middle of the band
-            //             if (params.value === 1 && params.dataIndex === Math.floor((bandStart + bandEnd) / 2)) {
-            //                 return 'Breast Tanner stage II';
-            //             }
-            //             return '';
-            //         },
-            //         color: '#6d3e04',
-            //         fontWeight: 'bold',
-            //         fontSize: 12
-            //     },
-            //     emphasis: { disabled: true }
-            // }
-
-
         ],
-
 
         dataZoom: [
             {
@@ -671,60 +638,60 @@
                     }
                 },
 
-                {
-                    type: 'text',
-                    left: 410, // Adjust based on your axis/px
-                    top: 1175,  // Adjust based on your axis/px
-                    style: {
-                        text: 'P3',
-                        font: '14px Arial',
-                        fill: '#333'
-                    }
-                },
+                {{--{--}}
+                {{--    type: 'text',--}}
+                {{--    left: 410, // Adjust based on your axis/px--}}
+                {{--    top: 1175,  // Adjust based on your axis/px--}}
+                {{--    style: {--}}
+                {{--        text: 'P3',--}}
+                {{--        font: '14px Arial',--}}
+                {{--        fill: '#333'--}}
+                {{--    }--}}
+                {{--},--}}
 
-                {
-                    type: 'text',
-                    left: 492, // Adjust based on your axis/px
-                    top: 1175,  // Adjust based on your axis/px
-                    style: {
-                        text: 'P50',
-                        font: '14px Arial',
-                        fill: '#333'
-                    }
-                },
+                {{--{--}}
+                {{--    type: 'text',--}}
+                {{--    left: 492, // Adjust based on your axis/px--}}
+                {{--    top: 1175,  // Adjust based on your axis/px--}}
+                {{--    style: {--}}
+                {{--        text: 'P50',--}}
+                {{--        font: '14px Arial',--}}
+                {{--        fill: '#333'--}}
+                {{--    }--}}
+                {{--},--}}
 
-                {
-                    type: 'text',
-                    left: 600, // Adjust based on your axis/px
-                    top: 1175,  // Adjust based on your axis/px
-                    style: {
-                        text: 'P97',
-                        font: '14px Arial',
-                        fill: '#333'
-                    }
-                },
+                {{--{--}}
+                {{--    type: 'text',--}}
+                {{--    left: 600, // Adjust based on your axis/px--}}
+                {{--    top: 1175,  // Adjust based on your axis/px--}}
+                {{--    style: {--}}
+                {{--        text: 'P97',--}}
+                {{--        font: '14px Arial',--}}
+                {{--        fill: '#333'--}}
+                {{--    }--}}
+                {{--},--}}
 
-                {
-                    type: 'text',
-                    left: 668, // Adjust based on your axis/px
-                    top: 1165,  // Adjust based on your axis/px
-                    style: {
-                        text: '{{ session()->get('profile')->gender == 'female' ? 'Menarche':'Pubic hair Tanner stage II' }}',
-                        font: '14px Arial',
-                        fill: '#333'
-                    }
-                },
+                {{--{--}}
+                {{--    type: 'text',--}}
+                {{--    left: 668, // Adjust based on your axis/px--}}
+                {{--    top: 1165,  // Adjust based on your axis/px--}}
+                {{--    style: {--}}
+                {{--        text: '{{ session()->get('profile')->gender == 'female' ? 'Menarche':'Pubic hair Tanner stage II' }}',--}}
+                {{--        font: '14px Arial',--}}
+                {{--        fill: '#333'--}}
+                {{--    }--}}
+                {{--},--}}
 
-                {
-                    type: 'text',
-                    left: 580, // Adjust based on your axis/px
-                    top: 1192,  // Adjust based on your axis/px
-                    style: {
-                        text: '{{ session()->get('profile')->gender == 'female' ? 'Breast Tanner stage II':'Genital Tanner stage II' }}',
-                        font: '14px Arial',
-                        fill: '#333'
-                    }
-                },
+                {{--{--}}
+                {{--    type: 'text',--}}
+                {{--    left: 580, // Adjust based on your axis/px--}}
+                {{--    top: 1192,  // Adjust based on your axis/px--}}
+                {{--    style: {--}}
+                {{--        text: '{{ session()->get('profile')->gender == 'female' ? 'Breast Tanner stage II':'Genital Tanner stage II' }}',--}}
+                {{--        font: '14px Arial',--}}
+                {{--        fill: '#333'--}}
+                {{--    }--}}
+                {{--},--}}
 
 
                 {
@@ -744,7 +711,90 @@
     };
 
     // Render the chart
+    // chart.setOption(option);
+
+    // Define text labels with their data coordinates (x-axis values where they should appear)
+    const dynamicLabels = [
+        {id: 'label-p3', text: 'P3', coord: ['8.0', p50[1]]},        // Age 8.0, height at P3
+        {id: 'label-p50', text: 'P50', coord: ['9.3', p50[1]]},      // Age 8.0, height at P50
+        {id: 'label-p97', text: 'P97', coord: ['11.8', p50[1]]},       // Age 8.0, height at P97
+
+        {id: 'label-mp3', text: 'P3', coord: ['9.3', p90[13]]},        // Age 8.0, height at P3
+        {id: 'label-mp50', text: 'P50', coord: ['11.3', p90[13]]},      // Age 8.0, height at P50
+        {id: 'label-mp97', text: 'P97', coord: ['13.8', p90[13]]},       // Age 8.0, height at P97
+
+        {
+            id: 'label-menarche',
+            text: '{{ session()->get('profile')->gender == 'female' ? 'Menarche':'Pubic hair Tanner stage II' }}',
+            coord: ['{{ session()->get('profile')->gender == 'female' ? '14.5':'15' }}', p90[20]]
+        },
+        {
+            id: 'label-breast',
+            text: '{{ session()->get('profile')->gender == 'female' ? 'Breast Tanner stage II':'Genital Tanner stage II' }}',
+            coord: ['{{ session()->get('profile')->gender == 'female' ? '12.5':'13.8' }}', p90[1]]
+        }
+    ];
+
+    // Create graphic elements from dynamicLabels
+    option.graphic.elements = dynamicLabels.map(label => ({
+        type: 'text',
+        id: label.id,
+        style: {
+            text: label.text,
+            font: '12px Arial',
+            fill: '#333'
+        }
+    }));
+
     chart.setOption(option);
+
+
+    // Function to convert data coordinates to pixel coordinates
+    function convertCoordToPixel(coord) {
+        const pixelCoord = chart.convertToPixel('grid', coord);
+        return {
+            left: pixelCoord[0],
+            top: pixelCoord[1]
+        };
+    }
+
+    // Function to update graphic positions on datazoom/resize
+    function updateGraphicPositions() {
+        const graphics = option.graphic.elements;
+
+        dynamicLabels.forEach(label => {
+            const graphicElement = graphics.find(el => el.id === label.id);
+            if (graphicElement) {
+                const pixel = convertCoordToPixel(label.coord);
+                graphicElement.left = pixel.left;
+                graphicElement.top = pixel.top;
+            }
+        });
+
+        // Only update graphic elements, not the entire option
+        chart.setOption({
+            graphic: {
+                elements: graphics
+            }
+        }, false);  // false = merge, not replace
+    }
+
+    // Initial position update
+    updateGraphicPositions();
+
+    // Update on datazoom event
+    chart.on('datazoom', function() {
+        updateGraphicPositions();
+    });
+
+    // Update on window resize
+    window.addEventListener('resize', function() {
+        chart.resize();
+        updateGraphicPositions();
+    });
+
+    // Function to update text positions on datazoom
+
     // });
 
 </script>

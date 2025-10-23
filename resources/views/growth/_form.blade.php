@@ -72,8 +72,7 @@
 
                 @if(session()->get('profile')->gender == 'female')
                     <div class="row mb-3">
-                        <label class="col-form-label col-lg-4">หน้าอกข้างซ้าย <span
-                                class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-4">หน้าอกข้างซ้าย </label>
                         <div class="col-lg-4">
                             <select id="imageDropdown" class="form-control " name="breastleft"
                                     style="width: 300px;">
@@ -104,8 +103,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label col-lg-4">หน้าอกข้างขวา <span
-                                class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-4">หน้าอกข้างขวา </label>
                         <div class="col-lg-4">
                             <select id="imageDropdown4" class="form-control " name="breastright"
                                     style="width: 300px;">
@@ -136,8 +134,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-form-label col-lg-4">ขนหัวหน่าว <span
-                                class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-4">ขนหัวหน่าว </label>
                         <div class="col-lg-4">
                             <select id="imageDropdown9" class="form-control " name="pubic_hair"
                                     style="width: 300px;">
@@ -183,8 +180,7 @@
 
                 @if(session()->get('profile')->gender == 'female')
                     <div class="row mb-3">
-                        <label class="col-form-label col-lg-4">ขนหัวหน่าว <span
-                                class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-4">ขนหัวหน่าว </label>
                         <div class="col-lg-4">
                             <select id="imageDropdown9" class="form-control " name="pubic_hair"
                                     style="width: 300px;">
@@ -216,8 +212,7 @@
 
                 @else
                     <div class="row mb-3 ">
-                        <label class="col-form-label col-lg-4">ขนหัวหน่าว <span
-                                class="text-danger">*</span></label>
+                        <label class="col-form-label col-lg-4">ขนหัวหน่าว </label>
                         <div class="col-lg-4">
                             <select id="imageDropdown9" class="form-control " name="pubic_hair"
                                     style="width: 300px;">
