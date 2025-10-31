@@ -43,6 +43,15 @@
                             </button>
                         </div>
 
+                        <div class="text-center">
+                            <button onclick="document.location='{{ route('patient.generate.qr') }}'"
+                                    type="button"
+                                    class="btn btn-white w-75 flex-column rounded-0 rounded-top-start py-2 m-2">
+                                <i class="ph-qr-code text-primary ph-2x mb-1"></i>
+                                Generate QR Code
+                            </button>
+                        </div>
+
                     </div>
                 </div>
 

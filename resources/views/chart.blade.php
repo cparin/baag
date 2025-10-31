@@ -113,13 +113,18 @@
             triggerOn: 'click',
             formatter: function (params) {
 
-                if (params.seriesIndex === 1) return params.seriesName + ' <br/>อายุ: ' + convertYearDecimal(params.value[0]) + '<br/>น้ำหนัก: ' + params.value[1] + ' กก.';
+                if (params.seriesName === 'Parent') {
+                    return 'MPH ส่วนสูงเฉลี่ยตามกรรมพันธุ์ = {{ $mph }} ซม.<br/>' +
+                        'TAH ส่วนสูงเป้าหมายตามพันธุกรรม = {{ $mph - 8 }} - {{ $mph + 8 }} ซม.';
+                }
 
-                if (params.seriesIndex === 2) return params.seriesName + ' <br/>อายุจริง: ' + convertYearDecimal(params.value[2]) + ' <br/>อายุกระดูก: ' + convertYearDecimal(params.value[0]) + '<br/>ความสูง: ' + params.value[1] + ' ซม.' + '<br/>ส่วนสูงคาดการณ์: ' + {!! $mph !!} + ' ซม.';
+                if (params.seriesIndex === 1) return  ' <br/>อายุ: ' + convertYearDecimal(params.value[0]) + '<br/>น้ำหนัก: ' + params.value[1] + ' กก.';
 
-                if (params.seriesIndex === 3) return params.seriesName + ' <br/>อายุ: ' + convertYearDecimal(params.value[0]) + '<br/>Tanner Stage: ' + params.value[2];
+                if (params.seriesIndex === 2) return  ' <br/>อายุจริง: ' + convertYearDecimal(params.value[2]) + ' <br/>อายุกระดูก: ' + convertYearDecimal(params.value[0]) + '<br/>ความสูง: ' + params.value[1] + ' ซม.';
 
-                return params.seriesName + ' <br/>อายุ: ' + convertYearDecimal(params.value[0]) + '<br/>ความสูง: ' + params.value[1] + ' ซม.';
+                if (params.seriesIndex === 3) return  ' <br/>อายุ: ' + convertYearDecimal(params.value[0]) + '<br/>Tanner Stage: ' + params.value[2];
+
+                return  ' <br/>อายุ: ' + convertYearDecimal(params.value[0]) + '<br/>ความสูง: ' + params.value[1] + ' ซม.';
 
 
                 // var xValue = params[0].axisValue;
@@ -407,7 +412,7 @@
                     },
                     data: [
                         [
-                            {xAxis: '{{ session()->get('profile')->gender == 'female' ? '9.6':'10' }}', yAxis: 17.5},
+                            {xAxis: '{{ session()->get('profile')->gender == 'female' ? '9.6':'10.0' }}', yAxis: 17.5},
                             {xAxis: '14.0', yAxis: 17.5}
                         ],
 
@@ -638,61 +643,6 @@
                     }
                 },
 
-                {{--{--}}
-                {{--    type: 'text',--}}
-                {{--    left: 410, // Adjust based on your axis/px--}}
-                {{--    top: 1175,  // Adjust based on your axis/px--}}
-                {{--    style: {--}}
-                {{--        text: 'P3',--}}
-                {{--        font: '14px Arial',--}}
-                {{--        fill: '#333'--}}
-                {{--    }--}}
-                {{--},--}}
-
-                {{--{--}}
-                {{--    type: 'text',--}}
-                {{--    left: 492, // Adjust based on your axis/px--}}
-                {{--    top: 1175,  // Adjust based on your axis/px--}}
-                {{--    style: {--}}
-                {{--        text: 'P50',--}}
-                {{--        font: '14px Arial',--}}
-                {{--        fill: '#333'--}}
-                {{--    }--}}
-                {{--},--}}
-
-                {{--{--}}
-                {{--    type: 'text',--}}
-                {{--    left: 600, // Adjust based on your axis/px--}}
-                {{--    top: 1175,  // Adjust based on your axis/px--}}
-                {{--    style: {--}}
-                {{--        text: 'P97',--}}
-                {{--        font: '14px Arial',--}}
-                {{--        fill: '#333'--}}
-                {{--    }--}}
-                {{--},--}}
-
-                {{--{--}}
-                {{--    type: 'text',--}}
-                {{--    left: 668, // Adjust based on your axis/px--}}
-                {{--    top: 1165,  // Adjust based on your axis/px--}}
-                {{--    style: {--}}
-                {{--        text: '{{ session()->get('profile')->gender == 'female' ? 'Menarche':'Pubic hair Tanner stage II' }}',--}}
-                {{--        font: '14px Arial',--}}
-                {{--        fill: '#333'--}}
-                {{--    }--}}
-                {{--},--}}
-
-                {{--{--}}
-                {{--    type: 'text',--}}
-                {{--    left: 580, // Adjust based on your axis/px--}}
-                {{--    top: 1192,  // Adjust based on your axis/px--}}
-                {{--    style: {--}}
-                {{--        text: '{{ session()->get('profile')->gender == 'female' ? 'Breast Tanner stage II':'Genital Tanner stage II' }}',--}}
-                {{--        font: '14px Arial',--}}
-                {{--        fill: '#333'--}}
-                {{--    }--}}
-                {{--},--}}
-
 
                 {
                     type: 'text',
@@ -715,18 +665,16 @@
 
     // Define text labels with their data coordinates (x-axis values where they should appear)
     const dynamicLabels = [
-        {id: 'label-p3', text: 'P3', coord: ['8.0', p50[1]]},        // Age 8.0, height at P3
-        {id: 'label-p50', text: 'P50', coord: ['9.3', p50[1]]},      // Age 8.0, height at P50
-        {id: 'label-p97', text: 'P97', coord: ['11.8', p50[1]]},       // Age 8.0, height at P97
-
-        {id: 'label-mp3', text: 'P3', coord: ['9.3', p90[13]]},        // Age 8.0, height at P3
-        {id: 'label-mp50', text: 'P50', coord: ['11.3', p90[13]]},      // Age 8.0, height at P50
-        {id: 'label-mp97', text: 'P97', coord: ['13.8', p90[13]]},       // Age 8.0, height at P97
-
+        {id: 'label-p3', text: 'P3', coord: [{!! json_encode($labelP3Coord) !!}]},
+        {id: 'label-p50', text: 'P50', coord: [{!! json_encode($labelP50Coord) !!}]},
+        {id: 'label-p97', text: 'P97', coord: [{!! json_encode($labelP97Coord) !!}]},
+        {id: 'label-mp3', text: 'P3', coord: [{!! json_encode($labelMP3Coord) !!}]},
+        {id: 'label-mp50', text: 'P50', coord: [{!! json_encode($labelMP50Coord) !!}]},
+        {id: 'label-mp97', text: 'P97', coord: [{!! json_encode($labelMP97Coord) !!}]},
         {
             id: 'label-menarche',
             text: '{{ session()->get('profile')->gender == 'female' ? 'Menarche':'Pubic hair Tanner stage II' }}',
-            coord: ['{{ session()->get('profile')->gender == 'female' ? '14.5':'15' }}', p90[20]]
+            coord: ['{{ session()->get('profile')->gender == 'female' ? '14.5':'15.0' }}', p90[20]]
         },
         {
             id: 'label-breast',
@@ -735,16 +683,46 @@
         }
     ];
 
-    // Create graphic elements from dynamicLabels
-    option.graphic.elements = dynamicLabels.map(label => ({
-        type: 'text',
-        id: label.id,
-        style: {
-            text: label.text,
-            font: '12px Arial',
-            fill: '#333'
+    const existingGraphicElements = [
+        {
+            type: 'image',
+            id: 'chart-image',
+            left: '4%',
+            top: '0.1%',
+            style: {
+                image: '{{ asset('images/thaipedendo_logo_eng.png') }}',
+                width: 90,
+                height: 90,
+                opacity: 1
+            }
+        },
+        {
+            type: 'text',
+            id: 'reference-text',
+            left: 108,
+            top: 1300,
+            style: {
+                text: 'References : WHO Growth Standard for children aged 2-5 years, 2006                                   Designed by Thai Society for Pediatric Endocrinology, 2022\n' +
+                    '                     National Growth References for children aged 5-19 years, 2020, Bureau of Nutrition, Department of Health, Ministry of Public Health',
+                font: '11px Arial',
+                fill: '#3d3e40'
+            }
         }
-    }));
+    ];
+
+    // Create graphic elements from dynamicLabels
+    option.graphic.elements = [
+        ...existingGraphicElements,
+        ...dynamicLabels.map(label => ({
+            type: 'text',
+            id: label.id,
+            style: {
+                text: label.text,
+                font: '12px Arial',
+                fill: '#333'
+            }
+        }))
+    ];
 
     chart.setOption(option);
 
@@ -783,12 +761,12 @@
     updateGraphicPositions();
 
     // Update on datazoom event
-    chart.on('datazoom', function() {
+    chart.on('datazoom', function () {
         updateGraphicPositions();
     });
 
     // Update on window resize
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         chart.resize();
         updateGraphicPositions();
     });

@@ -60,9 +60,9 @@
                 </li>
                 @if(!session()->has('auth'))
 
-                    {{--                    <li class="nav-item">--}}
-                    {{--                        <a href="/register" class="navbar-nav-link rounded"> ลงทะเบียน</a>--}}
-                    {{--                    </li>--}}
+                    <li class="nav-item">
+                        <a href="/user/create" class="navbar-nav-link rounded"> ลงทะเบียน</a>
+                    </li>
 
                 @endif
                 @if(session()->has('auth'))
@@ -72,12 +72,6 @@
 
                 @endif
 
-
-                @if(session()->has('sci'))
-                    {{--                    <li class="nav-item">--}}
-                    {{--                        <a href="{{ route('approve.index') }}" class="navbar-nav-link rounded"> อนุมัติการจอง</a>--}}
-                    {{--                    </li>--}}
-                @endif
 
                 <li class="nav-item">
                     <a href="#" class="navbar-nav-link rounded"> ติดต่อเรา</a>
@@ -124,10 +118,11 @@
                         @if(session()->has('profiles'))
 
                             @foreach(session()->get('profiles') as $profile)
-                                <a href="/selectprofile/{{ $profile->id }}" class="dropdown-item">{{ $profile->name }}</a>
+                                <a href="/selectprofile/{{ $profile->id }}"
+                                   class="dropdown-item">{{ $profile->name }}</a>
                             @endforeach
-{{--                            <a href="/selectprofile/1" class="dropdown-item">เด็กหญิงเติบโต เติบโต</a>--}}
-{{--                            <a href="/selectprofile/2" class="dropdown-item">เด็กชายโตเติบ เติบโต</a>--}}
+                            {{--                            <a href="/selectprofile/1" class="dropdown-item">เด็กหญิงเติบโต เติบโต</a>--}}
+                            {{--                            <a href="/selectprofile/2" class="dropdown-item">เด็กชายโตเติบ เติบโต</a>--}}
 
                         @endif
                     </div>
@@ -164,7 +159,7 @@
 
                 <div class="d-inline-flex">
                     <a href="{{ route('auth.index') }}" class="btn btn-indigo">
-                        <i class="ph-book ms-1"></i> เข้าสู่ระบบ
+                        <i class="ph-book me-1"></i> เข้าสู่ระบบ
                     </a>
 
                 </div>
